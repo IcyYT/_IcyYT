@@ -1,0 +1,147 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>List of _IcyYT  coded games!!!</title>
+    <style> 
+    .error{
+    color: #000;
+    font-size: 40px;
+    transform: rotate(180deg);
+    }
+    .main { 
+        text-align:center; 
+    } 
+    .marq { 
+        padding-top:30px; 
+        padding-bottom:30px; 
+    } 
+    .subtitle1 { 
+        font-size:36px; 
+        font-weight:bold; 
+        color:white; 
+        padding-bottom:10px; 
+    }
+    div.a {
+    color: #fff;
+    text-align: center;
+    font-size: 40px;
+}
+    </style> 
+    <style>
+    .blink {
+    
+    </style>
+</head>  
+<body>
+    <div class = "main"> 
+    <marquee class="marq" bgcolor = "blue" direction = "left" loop="" > 
+        <div class="subtitle1"><blink>List of _IcyYT  coded games.</blink></div> 
+        <div class="subtitle2">A list of my coded games all in one page.(finally)</div> 
+    </marquee> 
+    </div> 
+    <a href="https://www.youtube.com/channel/UCj2jpOr8SYCooW43h3X3nbw" color="orange">click this link to go to my youtube channel(don't judge about the 21 subs!</a>
+<b>
+
+<script>
+var text="Creator of this game website is 13 yrs old." // YOUR TEXT
+var speed=0.1 // SPEED OF FADE
+
+// ********** LEAVE THE NEXT BIT ALONE!
+
+
+if (document.all||document.getElementById){
+document.write('<span id="highlight">' + text + '</span>')
+var storetext=document.getElementById? document.getElementById("highlight") : document.all.highlight
+}
+else
+document.write(text)
+var hex=new Array("00","14","28","3C","50","64","78","8C","A0","B4","C8","DC","F0")
+var r=1
+var g=1
+var b=1
+var seq=1
+function changetext(){
+rainbow="#"+hex[r]+hex[g]+hex[b]
+storetext.style.color=rainbow
+}
+function change(){
+if (seq==6){
+b--
+if (b==0)
+seq=1
+}
+if (seq==5){
+r++
+if (r==12)
+seq=6
+}
+if (seq==4){
+g--
+if (g==0)
+seq=5
+}
+if (seq==3){
+b++
+if (b==12)
+seq=4
+}
+if (seq==2){
+r--
+if (r==0)
+seq=3
+}
+if (seq==1){
+g++
+if (g==12)
+seq=2
+}
+changetext()
+}
+function starteffect(){
+if (document.all||document.getElementById)
+flash=setInterval("change()",speed)
+}
+starteffect()
+</script>
+</b>
+
+<br/>
+<marquee direction="left" scrollamount="9"><button onclick="buttonFunction()" div="div.a" >Click here for an achievement</button></marquee>
+<script>
+function buttonFunction() {
+  alert("Achievement get!, click the button at the top ;).");
+}
+</script>
+
+    <a href="file:///home/chronos/u-8656e872048854838e58d1bcfd6e567615f1359e/MyFiles/Downloads/clicker%20game%20coding/clicker%20game.htm">this is a link to my clicker game if I put it into this page it breaks for no reason.</a>
+<iframe src="file:///home/chronos/u-8656e872048854838e58d1bcfd6e567615f1359e/MyFiles/Downloads/raze.swf%20coding/raze.html" width="1000" height="1000"></iframe>
+<marquee direction="left">This is also a game i downloaded off a webstie.</marquee>
+<iframe src="file:///home/chronos/u-8656e872048854838e58d1bcfd6e567615f1359e/MyFiles/Downloads/rebuild.swf%20coding/rebuild.html" width="1000" height="1000"></iframe>
+<marquee direction="left">Again same as last text</marquee>
+<iframe src="file:///home/chronos/u-8656e872048854838e58d1bcfd6e567615f1359e/MyFiles/Downloads/snake%20coding/snakegame.html" width="1000" height="1000"></iframe>
+<marquee direction="left">This is my best game ever (prob should of put this at the top</marquee>
+<button div="error" onclick="unrealengineScriptError()" >Unreal Engine Script error</button>
+<script>
+function unrealengineScriptError() {
+  alert("Achievement get!, find the unreal engine script error! fjdsaijfj3-9e934y583q0");
+  disable_button;
+}
+</script>
+<iframe src="file:///home/chronos/u-8656e872048854838e58d1bcfd6e567615f1359e/MyFiles/Downloads/sugar%20sugar/sugar,sugar.htm" width="1000" height="1000"></iframe>
+<marquee direction="left">This is a game i found on engineering.com</marquee>
+<iframe src="file:///home/chronos/u-8656e872048854838e58d1bcfd6e567615f1359e/MyFiles/Downloads/gamepad_tester.html" width="1000" height="1000"></iframe>
+<marquee direction="left">Gamepad tester to see if your buttons work (NOTE: only with certain controllers (aka an xbox one controller or other controllers))</marquee>
+<iframe src="https://warmerise.com" frameborder="0" style="border:none;" width="1000" height="600" scrolling="no" allowfullscreen></iframe>
+<marquee direction="left">This is a FPV shooter or TPV shooter game</marquee>
+  <html>
+<marquee direction="left" scrollamount="9"><button onclick="myFunction()"  >Click here for an achievement</button>
+</marquee>
+<script>
+function myFunction() {
+  alert("Achievement get!, find the bottom.");
+}
+</script>
+<p>to go to my other page click the button that says "go to 2nd page."</p>
+<marquee direction="left" bgcolor="blue"><a href="file:///home/chronos/u-8656e872048854838e58d1bcfd6e567615f1359e/MyFiles/Downloads/newsnake/2nd%20page%20of%20html%20games.html"><button>Go To 2nd page.</button></a></marquee>
+</html>
+</body>
