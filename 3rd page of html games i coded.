@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>List of _IcyYT  coded games!!!</title>
+    <p>to go to my 1st or 2nd page click the button that says "go to 1st page." or button that says "go to 2nd page"</p>
+<marquee direction="left" bgcolor="blue"><a href="file:///home/chronos/u-8656e872048854838e58d1bcfd6e567615f1359e/MyFiles/Downloads/newsnake/new%20snake.html"><button>Go To 1st page.</button></a></marquee>
+<marquee direction="left" bgcolor="blue"><a href="file:///home/chronos/u-8656e872048854838e58d1bcfd6e567615f1359e/MyFiles/Downloads/newsnake/2nd%20page%20of%20html%20games.html"><button>Go To 2nd page.</button></a></marquee>
+    <style> 
+    .error{
+    color: #000;
+    font-size: 40px;
+    transform: rotate(180deg);
+    }
+    .main { 
+        text-align:center; 
+    } 
+    .marq { 
+        padding-top:30px; 
+        padding-bottom:30px; 
+    } 
+    .subtitle1 { 
+        font-size:36px; 
+        font-weight:bold; 
+        color:white; 
+        padding-bottom:10px; 
+    }
+    div.a {
+  transform: rotate(180deg);
+}
+    </style> 
+    <style>
+    .blink {
+    
+    </style>
+</head>  
+<body>
+    <div class = "main"> 
+    <marquee class="marq" bgcolor = "blue" direction = "left" loop="" > 
+        <div class="subtitle1"><blink>List of _IcyYT  coded games. PAGE 2</blink></div></marquee> 
+    </div>
+    <iframe src="http://suki.ipb.ac.rs/bugs/" width="1000" height="1000"></iframe>
+    <marquee direction="left" bgcolor="orange" scrollamount="4" width="255">this is a javascript simulation of bugs chasing each other.</marquee>
+    <marquee direction="left" width=500>this is the end of my games (NOTE: will add more soon!)</marquee>
+   <marquee direction="left" bgcolor="blue">You found the bottom of the 3rd page click the button (>> =right (my right) to get a try hard acheivement.</marquee>
+   <marquee direction="left" scrollamount="9"><button onclick="buttonFunction()" div="div" >Click here for an achievement</button></marquee>
+<script>
+function buttonFunction() {
+  alert("Achievement get!, FIND THE BOTTOM OF PAGE 3 YOU TRY HARD ;).");
+}
+</script>
+<marquee direction="left" bgcolor="blue"><a href="file:///home/chronos/u-8656e872048854838e58d1bcfd6e567615f1359e/MyFiles/Downloads/newsnake/4th%2520page%2520of%2520html%2520games.html"><button>GO to 4th page (FINAL PAGE)</button></a></marquee>
+</body>
+</html>
