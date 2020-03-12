@@ -1,0 +1,115 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Sugar Sugar</title>
+<style>
+.game-left {
+  float: left;
+}
+
+.ad-right {
+  float: left;
+  margin-left: 5px;
+}
+</style>
+</head>
+<body>
+
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/14357335/Engcom_Games_Leaderboard', [728, 90], 'div-gpt-ad-1415804448309-0').addService(googletag.pubads());
+googletag.defineSlot('/14357335/Engcom_Games_Skyscraper', [160, 600], 'div-gpt-ad-1415804448309-1').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+<div id='div-gpt-ad-1415804448309-0' style='width:728px; height:90px;'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1415804448309-0'); });
+</script>
+</div>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=jsemkiw"></script> 
+<br>
+
+<div class="game-left">
+
+<object codebase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0 height=600 width=800 classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000>
+  <param name="_cx" value="15875" />
+  <param name="_cy" value="11853" />
+  <param name="FlashVars" value="" />
+  <param name="Movie" value="http://games.engineering.com/sugarsugar/sugar.swf" />
+  <param name="Src" value="http://games.engineering.com/sugarsugar/sugar.swf" />
+  <param name="WMode" value="Opaque" />
+  <param name="Play" value="-1" />
+  <param name="Loop" value="-1" />
+  <param name="Quality" value="High" />
+  <param name="SAlign" value="" />
+  <param name="Menu" value="-1" />
+  <param name="Base" value="" />
+  <param name="AllowScriptAccess" value="" />
+  <param name="Scale" value="ShowAll" />
+  <param name="DeviceFont" value="0" />
+  <param name="EmbedMovie" value="0" />
+  <param name="BGColor" value="" />
+  <param name="SWRemote" value="" />
+  <param name="MovieData" value="" />
+  <param name="SeamlessTabbing" value="1" />
+  <param name="Profile" value="0" />
+  <param name="ProfileAddress" value="" />
+  <param name="ProfilePort" value="0" />
+  <param name="AllowNetworking" value="all" />
+  <param name="AllowFullScreen" value="false" />
+  <embed src="http://games.engineering.com/sugarsugar/sugar.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="800" height="600" wmode="Opaque"> </embed>
+</object>
+</div>
+<div id='div-gpt-ad-1415804448309-1' class='ad-right'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1415804448309-1'); });
+</script>
+</div>
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-346666-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Start Quantcast tag -->
+<SCRIPT type=text/javascript>
+_qoptions={
+qacct:"p-b0hFPX_Dy1okM"
+};
+</SCRIPT>
+
+<SCRIPT type=text/javascript src="http://edge.quantserve.com/quant.js"></SCRIPT>
+<NOSCRIPT><IMG style="DISPLAY: none" border=0 alt=Quantcast src="http://pixel.quantserve.com/pixel/p-b0hFPX_Dy1okM.gif" width=1 height=1> </NOSCRIPT><!-- End Quantcast tag -->
+</body>
+</html>
