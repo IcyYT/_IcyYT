@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="rot.min.js"></script>
+    <style>
+    body {
+    	background-color:black;
+    	margin:0;
+    	padding:10px 0 0 10px;
+    };
+    </style>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-88096527-1', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+</head>
+<body onload="Game.init()">
+<script>
+var Game = {
+	data:{
+		display:{
+			fontSize:20
+		}
+	},
+	display:null,
+	map:{},
+	
+	init: function(){
+		if (!ROT.isSupported()) alert("We're sorry, but we can't support this browser. Please try another.");
+		Game.createDisplay();
+		Game.createMap();
+		Game.initialisePlayer();
+		Game.draw();
+		Game.loop();
+		Game.bindUIEvents();
+	},
+	
+	createDisplay: function(){
+		var h = window.innerHeight;
+		var w = window.innerWidth;
+		Game.data.display.height = Math.floor(h/Game.data.display.fontSize - 1);
+		Game.data.display.width = Math.floor(w/Game.data.display.fontSize - 1);
+		
+		Game.display = new ROT.Display({
+			width:Game.data.display.width,
+			height:Game.data.display.height,
+			fontSize:Game.data.display.fontSize,
+			forceSquareRatio:true,
+		});
+		document.body.appendChild(Game.display.getContainer());
+	},
+	
+	createMap: function(){
+		Game.map = new ROT.Map.EllerMaze(Game.data.display.width, Game.data.display.height);
+		var mapCallback = function(x, y, value) {
+			var key = x+","+y;
+			this.map[key] = value;
+		}
+		for (var i=0; i<5; i++){
+			Game.map.create(mapCallback.bind(this))
+		}
+		Game.createExit();
+	},
+	
+	createExit: function(){
+		var side = Game.rand(4);
+		if (side == 1 || side == 3){
+			var number = Game.rand(Game.data.display.width-1);
+			if (side == 1){
+				if (Game.isWall(number,1)){
+					Game.createExit();
+					return false;
+				} else {
+					Game.map[number + "," + 0] = 0;
+					Game.map.exit = [number, 0];
+					return true;
+				}
+			}
+			if (side == 3){
+				if (Game.isWall(number, Game.data.display.height-2)){
+					Game.createExit();
+					return false;
+				} else {
+					Game.map[number + "," + (Game.data.display.height-1)] = 0;
+					Game.map.exit = [number, Game.data.display.height-1];
+					return true;
+				}
+			}
+		} else {
+			var number = Game.rand(Game.data.display.height-1);
+			if (side == 2){
+				if (Game.isWall(Game.data.display.width-2,number)){
+					Game.createExit();
+					return false;
+				} else {
+					Game.map[(Game.data.display.width-1) + "," + number] = 0;
+					Game.map.exit = [Game.data.display.width-1, number];
+					return true;
+				}
+			}
+			if (side == 4){
+				if (Game.isWall(1,number)){
+					Game.createExit();
+					return false;
+				} else {
+					Game.map[0 + "," + number] = 0;
+					Game.map.exit = [0, number];
+					return true;
+				}
+			}
+		}
+	},
+	
+	initialisePlayer: function(){
+		Game.data.player = {};
+		Game.data.player.location = Game.initialisePlayerLocation();
+	},
+	initialisePlayerLocation: function(){
+		var l = Game.randomLocation();
+		if (!Game.isWall(l[0],l[1])){
+			return l;
+		} else {
+			return Game.initialisePlayerLocation();
+		}
+	},
+	
+	draw: function(){
+		Game.drawMap();
+		Game.drawPlayer();
+	},
+	drawMap: function(){
+		for (var x=0; x < Game.data.display.width; x++){
+			for (var y=0; y < Game.data.display.height; y++){
+				if (Game.isWall(x,y)){
+					Game.display.draw(x,y,"","","#444");
+				} else {
+					Game.display.draw(x,y,"","","#000");
+				}
+			}
+		}
+		Game.display.draw(Game.map.exit[0],Game.map.exit[1],"","","#0f0");
+	},
+	drawPlayer: function(){
+		Game.display.draw(
+			Game.data.player.location[0],
+			Game.data.player.location[1],
+			"§©",
+			"#f00",
+			"#000"
+		);
+	},
+	
+	move: function(direction){
+		var x = parseInt(Game.data.player.location[0]);
+		var y = parseInt(Game.data.player.location[1]);
+		switch (direction){
+			case "left":
+				if (!Game.isWall(x-1,y)){
+					Game.data.player.location[0]--;
+				} else {
+					return false;
+				}
+				break;
+			case "right":
+				if (!Game.isWall(x+1,y)){
+					Game.data.player.location[0]++;
+				} else {
+					return false;
+				}
+				break;
+			case "up":
+				if (!Game.isWall(x,y-1)){
+					Game.data.player.location[1]--;
+				} else {
+					return false;
+				}
+				break;
+			case "down":
+				if (!Game.isWall(x,y+1)){
+					Game.data.player.location[1]++;
+				} else {
+					return false;
+				}
+				break;
+		}
+		Game.draw();
+		if (Game.map.exit[0] == Game.data.player.location[0] && Game.map.exit[1] == Game.data.player.location[1]){
+			//ding ding ding we have a winner!
+			var restart = confirm("You escaped!");
+			if (restart) location.reload();
+		}
+	},
+	
+	loop: function(){
+		//window.setInterval(function(){;
+			//Game.draw();
+		//},1000);
+	},
+	
+	rand: function(ceil){
+		return Math.ceil(ROT.RNG.getUniform() * ceil)
+	},
+	isWall: function(x,y){
+		return Game.map[x + "," + y];
+	},
+	randomLocation: function(){
+		var x = Game.rand(Game.data.display.width-1);
+		var y = Game.rand(Game.data.display.height-1);
+		return [x,y];
+	},
+	
+	bindUIEvents: function(){
+		document.body.addEventListener("keydown", function(e){
+			switch (e.keyCode){
+				case 37:
+				case 65:
+					Game.move("left")
+					break;
+				case 38:
+				case 87:
+					Game.move("up");
+					break;
+				case 39:
+				case 68:
+					Game.move("right");
+					break;
+				case 40:
+				case 83:
+					Game.move("down");
+					break;
+			}
+		});
+	}
+}
+        function createTimer(seconds) {
+            intervalVar = setInterval(function () {
+                makeWhite(mazeWidth, 0, canvas.width - mazeWidth, canvas.height);
+                if (seconds === 0) {
+                    clearInterval(intervalVar);
+                    window.removeEventListener("keydown", moveRect, true);
+                    makeWhite(0, 0, canvas.width, canvas.height);
+                    context.font = "40px Arial";
+                    context.fillStyle = "red";
+                    context.textAlign = "center";
+                    context.textBaseline = "middle";
+                    context.fillText("Time's up!", canvas.width / 2, canvas.height / 2);
+                    return;
+                }
+                context.font = "20px Arial";
+                if (seconds <= 10 && seconds > 5) {
+                    context.fillStyle = "orangered";
+                }
+                else if (seconds <= 5) {
+                    context.fillStyle = "red";
+                }
+                else {
+                    context.fillStyle = "green";
+                }
+                context.textAlign = "center";
+                context.textBaseline = "middle";
+                var minutes = Math.floor(seconds / 60);
+                var secondsToShow = (seconds - minutes * 60).toString();
+                if (secondsToShow.length === 1) {
+                    secondsToShow = "0" + secondsToShow; // if the number of seconds is '5' for example, make sure that it is shown as '05'
+                }
+                context.fillText(minutes.toString() + ":" + secondsToShow, mazeWidth + 30, canvas.height / 2);
+                seconds--;
+            }, 1000);
+        }
+        function makeWhite(x, y, w, h) {
+            context.beginPath();
+            context.rect(x, y, w, h);
+            context.closePath();
+            context.fillStyle = "white";
+            context.fill();
+        }
+        drawMazeAndRectangle(425, 3);
+        window.addEventListener("keydown", moveRect, true);
+        createTimer(120); // 2 minutes
+</script>
+</body>
+</html>
